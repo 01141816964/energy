@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape
+        android:innerRadius="@dimen/circleProgressRadius"
+        android:shape="ring"
+        android:thickness="@dimen/circleProgressThickness">
+
+        <gradient
+            android:startColor="@color/circleProgressCompleteStartGradient"
+            android:endColor="@color/circleProgressCompleteEndGradient"
+            android:type="sweep" />
+
+    </shape>
+
+</selector>

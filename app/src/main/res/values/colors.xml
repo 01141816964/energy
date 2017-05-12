@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="circleProgressCompleteStartGradient">@color/dark_blue</color> - This defines the starting color for the gradient that covers the percentage of the progress circle ring that is completed.
+    <color name="circleProgressCompleteEndGradient">@color/coral_blue</color> - This defines the ending color for the gradient that covers the percentage of the progress circle ring that is completed.
+    <color name="circleProgressIncompleteStartGradient">@color/light_gray</color> and <color name="circleProgressIncompleteEndGradient">@color/light_gray</color> define the gradient for the remaining section of the progress circle. Note that they are by default set to the same color, which acts as a solid fill color.
+
+</resources>

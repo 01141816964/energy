@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="circleProgressRadius">60dp</dimen> - This is defines the radius (size) of the circle.
+    <dimen name="circleProgressThickness">7dp</dimen> - This defines the thickness of the circle ring, where the fill colors are applied.
+
+</resources>

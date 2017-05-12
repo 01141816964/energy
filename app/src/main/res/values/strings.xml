@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Energy</string>
+    <string name="device_name">DEVICE NAME:</string>
+    <string name="text_view">TextView</string>
+    <string name="registration">registration</string>
+    <string name="user_name">USER NAME:</string>
+    <string name="kwh">KWH:</string>
+    <string name="password">PASSWORD:</string>
+    <string name="usage_time">USAGE TIME:</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="save_device">SAVE DEVICE</string>
+
+    <string-array name="countries">
+        <item>Palastine</item>
+        <item>Sudan</item>
+        <item>egypt</item>
+        <item>makkah</item>
+    </string-array>
+</resources>
