@@ -4,12 +4,11 @@
         <shape
             android:innerRadius="@dimen/circleProgressRadius"
             android:shape="ring"
-            android:thickness="@dimen/circleProgressThickness"
-            android:useLevel="true">
+            android:thickness="@dimen/circleProgressThickness">
 
             <gradient
-                android:startColor="@color/circleProgressCompleteStartGradient"
-                android:endColor="@color/circleProgressCompleteEndGradient"
+                android:startColor="@color/circleProgressIncompleteStartGradient"
+                android:endColor="@color/circleProgressIncompleteEndGradient"
                 android:type="sweep" />
         </shape>
     </item>

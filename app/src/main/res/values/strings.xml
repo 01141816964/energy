@@ -16,4 +16,9 @@
         <item>egypt</item>
         <item>makkah</item>
     </string-array>
+
+    <dimen name="curvedTextViewTextSize">15sp</dimen>
+   <string name="percent_value">125 LE</string>
+    <string name="total_observations">750 KWH</string>
+
 </resources>
