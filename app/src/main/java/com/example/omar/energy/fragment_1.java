@@ -15,7 +15,7 @@ import android.widget.TextView;
  * Created by omar on 15/05/17.
  */
 
-public class fragment_1 extends Fragment {
+public class  fragment_1 extends Fragment {
 
         private int progressValue;
         private int backgroundBar;

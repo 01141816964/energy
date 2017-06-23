@@ -10,6 +10,7 @@
     <string name="sign_up">SIGN UP</string>
     <string name="save_device">SAVE DEVICE</string>
 
+
     <string-array name="countries">
         <item>Palastine</item>
         <item>Sudan</item>

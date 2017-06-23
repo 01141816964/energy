@@ -9,10 +9,7 @@
         android:id="@+id/grid_view_image_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="150dp"
         android:columnWidth="150dp"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="30dp"
         android:gravity="center"
-        android:numColumns="2" />
+        android:numColumns="2"/>
 </LinearLayout>

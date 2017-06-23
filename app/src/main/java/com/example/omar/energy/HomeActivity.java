@@ -61,11 +61,11 @@ public class HomeActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return fragment_2.newInstance("Fragment 2",R.drawable.energy,R.drawable.cardinal_bird);
+                    return fragment_3.newInstance();
                 case 1:
                     return fragment_1.newInstance("titleDemo","750 KWH","125 LE", 90,R.drawable.circle_progress_background,R.drawable.circle_progress_foreground);
                 case 2:
-                    return fragment_3.newInstance("Fragment 3", R.drawable.cardinal_bird);
+                    return fragment_2.newInstance();
                 default:
                     return null;
             }
