@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="background_color">#009688</color>
+    <color name="black">#000000</color>
+    <color name="white_greyish">#EEEEEE</color>
+    <color name="button_selectorcolor">#9E9E9E</color>
 
 
     <color name="white">#FFFFFF</color>
@@ -11,7 +12,13 @@
     <color name="text_gray">#6B767D</color>
     <color name="coral_blue">#1DAEFA</color>
     <color name="dark_blue">#125D9D</color>
-    <color name="black">#ff000000</color>
+
+    <color name="colorPrimary">#51d8c7</color>
+    <color name="colorPrimaryDark">#51d8c7</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorBackground">#413e4f</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorTextHint">#51d8c7</color>
 
     <color name="circleProgressCompleteStartGradient">@color/dark_blue</color>
     <color name="circleProgressCompleteEndGradient">@color/coral_blue</color>

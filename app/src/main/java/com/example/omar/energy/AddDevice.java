@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+/*package com.example.omar.energy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,8 +20,7 @@ public class AddDevice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_device);
-        helper = new MySqliteOpenHelper(this,"UCAS_DB",
-                null,1);
+        helper = new MySqliteOpenHelper(this,"UCAS_DB",null,1);
         ds = new DeviceDataSource(helper);
         refreshListView();
 
@@ -53,3 +52,4 @@ private void refreshListView(){
 }
 
 }
+*/
