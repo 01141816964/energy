@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+package com.example.omar.energy.module;
 
 /**
  * Created by omar on 29/06/17.

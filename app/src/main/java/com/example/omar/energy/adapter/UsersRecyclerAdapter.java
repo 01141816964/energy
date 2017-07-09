@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+package com.example.omar.energy.adapter;
 
 
 import android.support.v7.widget.AppCompatTextView;
@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 //import com.androidtutorialshub.loginregister.R;
 //import com.androidtutorialshub.loginregister.model.User;
+
+import com.example.omar.energy.R;
+import com.example.omar.energy.module.User;
 
 import java.util.List;
 

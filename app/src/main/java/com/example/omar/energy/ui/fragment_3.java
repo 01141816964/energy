@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+package com.example.omar.energy.ui;
 
 /**
  * Created by omar on 15/05/17.
@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+
+import com.example.omar.energy.module.MyView;
+import com.example.omar.energy.R;
 
 
 
@@ -34,21 +37,16 @@ public void onItemClick(AdapterView<?> parent, View view,
         }
         */
 
-public class fragment_2 extends Fragment {
+public class fragment_3 extends Fragment {
 
     GridView androidGridView;
 
     String[] gridViewString = {
-            "Bed Room 1", "Bed Romm 2",
-            "Living Room","Office",
-            "Ketchin", "Path Room"
+            "Normal", "Sleep", "Out","Extra Save"
 
     } ;
     int[] gridViewImageId = {
-            R.drawable.bed_512, R.drawable.bed_512,
-            R.drawable.armchair_512, R.drawable.office_512,
-            R.drawable.refrigerator_512, R.drawable.pathroom_512
-
+            R.drawable.powerbutton_512, R.drawable.sleep_512, R.drawable.door_512,R.drawable.power_512
     };
     /*
 
@@ -58,8 +56,8 @@ public class fragment_2 extends Fragment {
 
 
      */
-     public static fragment_2 newInstance() {
-            fragment_2 fragment = new fragment_2();
+    public static fragment_3 newInstance() {
+        fragment_3 fragment = new fragment_3();
 
            /*
             Bundle args = new Bundle();
@@ -67,20 +65,20 @@ public class fragment_2 extends Fragment {
             args.putInt("imageSecondary", resSecondaryImage);
             args.putString("title", title);
             fragment.setArguments(args);*/
-            return fragment;
-        }
+        return fragment;
+    }
 
 
-/*GridView androidGridView, String[] gridViewString, int[] gridViewImageId*/
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+    /*GridView androidGridView, String[] gridViewString, int[] gridViewImageId*/
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-            View view = inflater.inflate(R.layout.fragment_2, container, false);
+        View view = inflater.inflate(R.layout.fragment_3, container, false);
 
-            MyView adapterViewAndroid = new MyView(getContext(), gridViewString, gridViewImageId);
-            androidGridView=(GridView)view.findViewById(R.id.grid_view_image_text);
-            androidGridView.setAdapter(adapterViewAndroid);
+        MyView adapterViewAndroid = new MyView(getContext(), gridViewString, gridViewImageId);
+        androidGridView=(GridView)view.findViewById(R.id.grid_view_image_text);
+        androidGridView.setAdapter(adapterViewAndroid);
 
            /*
             TextView tvLabel = (TextView) view.findViewById(R.id.txtMain);
@@ -92,7 +90,7 @@ public class fragment_2 extends Fragment {
              ImageView imageViewSecondary = (ImageView) view.findViewById(R.id.imgSecondary);
              imageViewSecondary.setImageResource(imageSecondary);
              */
-            return view;
-        }
+        return view;
     }
+}
 

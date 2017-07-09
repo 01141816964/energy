@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+package com.example.omar.energy.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+
+import com.example.omar.energy.module.InputValidation;
+import com.example.omar.energy.sqlite.MySqliteOpenHelper;
+import com.example.omar.energy.R;
+import com.example.omar.energy.module.User;
 
 //import com.androidtutorialshub.loginregister.R;
 //import com.androidtutorialshub.loginregister.helpers.InputValidation;

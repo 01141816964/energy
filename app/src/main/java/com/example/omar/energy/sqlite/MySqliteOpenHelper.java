@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+package com.example.omar.energy.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 //import com.androidtutorialshub.loginregister.model.User;
+
+import com.example.omar.energy.module.User;
 
 import java.util.ArrayList;
 import java.util.List;

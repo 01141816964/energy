@@ -1,14 +1,15 @@
-package com.example.omar.energy;
+package com.example.omar.energy.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.omar.energy.R;
 
 
 /**
@@ -58,7 +59,7 @@ public class  fragment_1 extends Fragment {
                 KWH = getArguments().getString("KWH");
                 LE = getArguments().getString("LE");
 
-
+            Toast.makeText(getContext(),"Welcome: "+titleDemo,Toast.LENGTH_SHORT).show();
 
 
         }

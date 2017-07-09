@@ -1,4 +1,4 @@
-package com.example.omar.energy;
+package com.example.omar.energy.module;
 
 
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.omar.energy.R;
 
 public class MyView extends BaseAdapter{private Context mContext;
     private final String[] gridViewString;
