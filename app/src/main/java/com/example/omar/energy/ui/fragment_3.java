@@ -3,12 +3,16 @@ package com.example.omar.energy.ui;
 /**
  * Created by omar on 15/05/17.
  */
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.omar.energy.module.MyView;
 import com.example.omar.energy.R;
@@ -90,6 +94,15 @@ public class fragment_3 extends Fragment {
              ImageView imageViewSecondary = (ImageView) view.findViewById(R.id.imgSecondary);
              imageViewSecondary.setImageResource(imageSecondary);
              */
+        androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,int i, long id) {
+
+                Toast.makeText(getContext(), "Selected Mood: " + gridViewString[+i], Toast.LENGTH_SHORT).show();
+
+            }
+        });
         return view;
     }
 }

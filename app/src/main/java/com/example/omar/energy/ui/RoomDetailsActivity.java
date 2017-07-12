@@ -19,15 +19,18 @@ import android.widget.TextView;
 import com.example.omar.energy.R;
 import com.example.omar.energy.adapter.DeviceAdapter;
 import com.example.omar.energy.module.Device;
+//import com.example.omar.energy.sqlite.MySqliteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDetailsActivity extends AppCompatActivity {
 
+    private AppCompatActivity activity = RoomDetailsActivity.this;
     private RecyclerView recyclerView;
     private DeviceAdapter adapter;
     private List<Device> deviceList;
+  //  private MySqliteOpenHelper databaseHelper;
     String roomName;
     TextView roomTitle;
 
@@ -55,6 +58,12 @@ public class RoomDetailsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         prepareAlbums();
+
+      //  databaseHelper = new MySqliteOpenHelper(activity);
+
+
+        /// getDataFromSQLite();
+
 
         try {
             // Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
@@ -150,12 +159,12 @@ public class RoomDetailsActivity extends AppCompatActivity {
                 if (position < spanCount) { // top edge
                     outRect.top = spacing;
                 }
-                outRect.bottom = spacing; // item bottom
+               outRect.bottom = spacing; // item bottom
             } else {
 
-                if (position >= spanCount) {
+                /*if (position >= spanCount) {
                     outRect.top = spacing; // item top
-                }
+                }*/
             }
         }
     }

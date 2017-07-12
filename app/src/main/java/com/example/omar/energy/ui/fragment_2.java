@@ -100,7 +100,7 @@ public class fragment_2 extends Fragment {
 
                  String Room = ((TextView) androidGridView.findViewById(R.id.android_gridview_text)).getText().toString();
 
-                  Toast.makeText(getContext(), "Go to :"+ Room , Toast.LENGTH_LONG)
+                  Toast.makeText(getContext(), "Go to :"+ Room , Toast.LENGTH_SHORT)
                     .show();
 
                  //   Toast.makeText(getContext(), "GridView Item: " + gridViewString[i], Toast.LENGTH_LONG).show();

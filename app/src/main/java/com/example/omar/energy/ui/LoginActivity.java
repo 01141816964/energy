@@ -1,6 +1,7 @@
 package com.example.omar.energy.ui;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,13 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.example.omar.energy.module.InputValidation;
-import com.example.omar.energy.sqlite.MySqliteOpenHelper;
+//import com.example.omar.energy.sqlite.MySqliteOpenHelper;
+import  com.example.omar.energy.data.model.User;
+import  com.example.omar.energy.data.repo.UserRepo;
+
+
 import com.example.omar.energy.R;
 
-//import com.androidtutorialshub.loginregister.helpers.InputValidation;
-//import com.androidtutorialshub.loginregister.sql.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
@@ -35,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView textViewLinkRegister;
 
     private InputValidation inputValidation;
-    private MySqliteOpenHelper databaseHelper;
+    private UserRepo userrepo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +82,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        databaseHelper = new MySqliteOpenHelper(activity);
+
+        userrepo = new UserRepo(activity);
         inputValidation = new InputValidation(activity);
 
     }
@@ -117,11 +121,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
+        if (userrepo.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
 
 
-            Intent accountsIntent = new Intent(activity, HomeActivity.class);
+            Intent accountsIntent = new Intent(activity, UsersListActivity.class);
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
             emptyInputEditText();
             startActivity(accountsIntent);

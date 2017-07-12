@@ -65,9 +65,9 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.MyViewHold
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Device device = deviceList.get(position);
-        holder.name.setText(device.getName());
+        holder.name.setText(device.getDeviceName());
 
-        holder.kwh.setText(device.getKWA() + " KWH");
+        holder.kwh.setText(device.getKWH() + " KWH");
 
         // loading device cover using Glide library
         Glide.with(mContext).load(device.getDeviceImage()).into(holder.thumbnail);

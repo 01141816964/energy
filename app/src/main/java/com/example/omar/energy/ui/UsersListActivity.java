@@ -14,9 +14,11 @@ import android.support.v7.widget.RecyclerView;
 //import com.androidtutorialshub.loginregister.model.User;
 //import com.androidtutorialshub.loginregister.sql.DatabaseHelper;
 
-import com.example.omar.energy.sqlite.MySqliteOpenHelper;
+//import com.example.omar.energy.sqlite.MySqliteOpenHelper;
 import com.example.omar.energy.R;
-import com.example.omar.energy.module.User;
+//import com.example.omar.energy.module.User;
+import com.example.omar.energy.data.model.User;
+import com.example.omar.energy.data.repo.UserRepo;
 import com.example.omar.energy.adapter.UsersRecyclerAdapter;
 
 import java.util.ArrayList;
@@ -29,7 +31,8 @@ public class UsersListActivity extends AppCompatActivity {
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
     private UsersRecyclerAdapter usersRecyclerAdapter;
-    private MySqliteOpenHelper databaseHelper;
+    private UserRepo userRepo;
+ //   private MySqliteOpenHelper databaseHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +64,8 @@ public class UsersListActivity extends AppCompatActivity {
         recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
         recyclerViewUsers.setHasFixedSize(true);
         recyclerViewUsers.setAdapter(usersRecyclerAdapter);
-        databaseHelper = new MySqliteOpenHelper(activity);
+        //databaseHelper = new MySqliteOpenHelper(activity);
+        userRepo = new UserRepo(activity);
 
         String emailFromIntent = getIntent().getStringExtra("EMAIL");
         textViewName.setText(emailFromIntent);
@@ -78,7 +82,7 @@ public class UsersListActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 listUsers.clear();
-                listUsers.addAll(databaseHelper.getAllUser());
+             listUsers.addAll(userRepo.getAllUser());
 
                 return null;
             }

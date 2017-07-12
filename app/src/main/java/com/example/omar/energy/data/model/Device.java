@@ -1,16 +1,30 @@
-package com.example.omar.energy.module;
+package com.example.omar.energy.data.model;
 
 /**
- * Created by Lincoln on 18/05/16.
+ * Created by omar on 11/07/17.
  */
+
 public class Device {
-    private int deviceId;
-    private int deviceRoomId;
-    private String deviceName;
-    private int KWH;
-    private int deviceImage;
-    private String stutas;
-    private int deviceUsageTime;
+
+    public static final String TAG = Device.class.getSimpleName();
+    public static final String TABLE = "Device";
+    // Deice Table Columns names
+    public static final String COLUMN_DEVICE_ID = "device_id";
+    public static final String COLUMN_DEVICE_NAME = "device_name";
+    public static final String COLUMN_DEVICE_IMAGE = "device_image";
+    public static final String COLUMN_DEVICE_KWH = "device_kwh";
+    public static final String COLUMN_DEVICE_USAGE_TIME = "device_usage_time";
+    public static final String COLUMN_DEVICE_STATUS = "device_status";
+    public static final String COLUMN_FOREIGN_EY = "fk_room";
+
+
+    public int deviceId;
+    public int deviceRoomId;
+    public String deviceName;
+    public int KWH;
+    public int deviceImage;
+    public String stutas;
+    public int deviceUsageTime;
 
     public Device() {
     }
@@ -78,3 +92,5 @@ public class Device {
         this.deviceUsageTime = deviceUsageTime;
     }
 }
+
+

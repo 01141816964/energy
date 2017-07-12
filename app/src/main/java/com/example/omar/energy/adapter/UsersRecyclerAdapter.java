@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 //import com.androidtutorialshub.loginregister.model.User;
 
 import com.example.omar.energy.R;
-import com.example.omar.energy.module.User;
-
+//import com.example.omar.energy.module.User;
+import com.example.omar.energy.data.model.User;
 import java.util.List;
 
 public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdapter.UserViewHolder> {

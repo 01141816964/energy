@@ -12,9 +12,10 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.example.omar.energy.module.InputValidation;
-import com.example.omar.energy.sqlite.MySqliteOpenHelper;
+//import com.example.omar.energy.sqlite.MySqliteOpenHelper;
 import com.example.omar.energy.R;
-import com.example.omar.energy.module.User;
+import com.example.omar.energy.data.model.User;
+import com.example.omar.energy.data.repo.UserRepo;
 
 //import com.androidtutorialshub.loginregister.R;
 //import com.androidtutorialshub.loginregister.helpers.InputValidation;
@@ -41,7 +42,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private AppCompatTextView appCompatTextViewLoginLink;
 
     private InputValidation inputValidation;
-    private MySqliteOpenHelper databaseHelper;
+   // private MySqliteOpenHelper databaseHelper;
+    private UserRepo userrepo;
     private User user;
 
     @Override
@@ -91,7 +93,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
      */
     private void initObjects() {
         inputValidation = new InputValidation(activity);
-        databaseHelper = new MySqliteOpenHelper(activity);
+       // databaseHelper = new MySqliteOpenHelper(activity);
+        userrepo = new UserRepo(activity);
         user = new User();
 
     }
@@ -137,13 +140,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
+        if (!userrepo.checkUser(textInputEditTextEmail.getText().toString().trim())) {
 
             user.setName(textInputEditTextName.getText().toString().trim());
             user.setEmail(textInputEditTextEmail.getText().toString().trim());
             user.setPassword(textInputEditTextPassword.getText().toString().trim());
 
-            databaseHelper.addUser(user);
+            userrepo.addUser(user);
 
             // Snack Bar to show success message that record saved successfully
             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();

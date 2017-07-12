@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context="com.example.omar.energy.ui.SettingUp2Activity"
+    android:background="@color/colorBackground">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -14,14 +17,15 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Users Details"
+            android:text="Setting Up your Home"
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
+            android:id="@+id/tvTitle"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/text_hello" />
+            android:text="" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textViewName"
@@ -30,18 +34,25 @@
 
     </android.support.v7.widget.LinearLayoutCompat>
 
-    <android.support.v7.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="5dp"
-        android:text="@string/text_accounts"
-        android:textColor="@android:color/black" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewUsers"
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="show Room"
+        android:onClick="showRoom"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Device"
+        android:onClick="addDevice"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show user"
+        android:onClick="showuser"/>
 
 </LinearLayout>

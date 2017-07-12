@@ -1,8 +1,14 @@
+/*
+
 package com.example.omar.energy.module;
 
+
+*/
 /**
  * Created by omar on 29/06/17.
- */
+ *//*
+
+
 
 public class User {
 
@@ -43,3 +49,4 @@ public class User {
         this.password = password;
     }
 }
+*/
