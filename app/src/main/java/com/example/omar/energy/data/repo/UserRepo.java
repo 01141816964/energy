@@ -26,15 +26,10 @@ import java.util.List;
 public class UserRepo {
 
     private DBHelper dbHelper;
-    private User user;
 
-    public UserRepo(Context context){
+    public UserRepo(Context context) {
         dbHelper = new DBHelper(context);
     }
-       // user = new User();
-
-
-
 
     public static String createTable(){
         return "CREATE TABLE " + User.TABLE  + "("

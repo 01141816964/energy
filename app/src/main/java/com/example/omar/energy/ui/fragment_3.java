@@ -100,6 +100,8 @@ public class fragment_3 extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,int i, long id) {
 
                 Toast.makeText(getContext(), "Selected Mood: " + gridViewString[+i], Toast.LENGTH_SHORT).show();
+                Intent intent =new Intent(getContext(),SleepActivity.class);
+                startActivity(intent);
 
             }
         });

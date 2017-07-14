@@ -25,6 +25,7 @@ public class Device {
     public int deviceImage;
     public String stutas;
     public int deviceUsageTime;
+    public boolean status;
 
     public Device() {
     }
@@ -34,6 +35,22 @@ public class Device {
         this.KWH = KWH;
         this.deviceImage = deviceImage;
         this.stutas = stutas;
+    }
+
+    public Device(int deviceId,String deviceName, int KWH, int deviceUsageTime, boolean status) {
+        this.deviceId = deviceId;
+        this.KWH = KWH;
+        this.deviceUsageTime = deviceUsageTime;
+        this.status = status;
+        this.deviceName=deviceName;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public int getDeviceId() {

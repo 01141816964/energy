@@ -1,6 +1,7 @@
 package com.example.omar.energy.ui;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.AppCompatTextView;
@@ -9,23 +10,34 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.omar.energy.R;
-import com.example.omar.energy.module.Device;
+
+//import com.example.omar.energy.module.Device;
 //import com.example.omar.energy.sqlite.MySqliteOpenHelper;
 //import com.example.omar.energy.module.User;
+import com.example.omar.energy.adapter.DeviceAdapter;
+import com.example.omar.energy.data.model.Device;
+import com.example.omar.energy.data.repo.DeviceRepo;
+
 import com.example.omar.energy.ui.AddDeviceDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class SettingUp2Activity extends FragmentActivity implements AddDeviceDialog.ShareDialogListener
        {
 
+           private final FragmentActivity activity = SettingUp2Activity.this;
 
- //  private MySqliteOpenHelper databaseHelper;
+
+           //  private MySqliteOpenHelper databaseHelper;
   //  private User user;
     private Device device;
-    private List<Device> deviceList;
+    private DeviceRepo devicerepo;
+    private List<Device> deviceList = new ArrayList<>();
     private AppCompatTextView tv;
+    private DeviceAdapter deviceAdapter;
+
 
 
     private String[] roomName = {
@@ -41,7 +53,7 @@ public class SettingUp2Activity extends FragmentActivity implements AddDeviceDia
         setContentView(R.layout.activity_setting_up2);
 
         tv = (AppCompatTextView) findViewById(R.id.tvTitle);
-
+            devicerepo = new DeviceRepo(activity);
      //   databaseHelper = new MySqliteOpenHelper(getApplicationContext());
         //user = new User();
         device = new Device();
@@ -136,12 +148,12 @@ public class SettingUp2Activity extends FragmentActivity implements AddDeviceDia
                device.setDeviceUsageTime(usageTime);
 
            //    databaseHelper.addDevice(device);
+                  devicerepo.addDevice(device);
 
 
-            //   deviceList.addAll(databaseHelper.getAllDevice());
-             //  Device device = deviceList.get(0);
-            //   String namee =device.getDeviceName();
-               tv.setText(device.getDeviceName());
+
+             //   deviceList.clear();
+
 
            }
 
@@ -149,12 +161,35 @@ public class SettingUp2Activity extends FragmentActivity implements AddDeviceDia
            public void onDialogNegativeClick(android.app.DialogFragment dialog) {
 
            //    deviceList.addAll(databaseHelper.getAllDevice());
-               Device device = deviceList.get(0);
-               String name=device.getDeviceName();
 
-               Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+               deviceList.addAll(devicerepo.getAllDevice());
+               Device device1 = deviceList.get(0);
+               String namee =device1.getDeviceName();
+               tv.setText(device1.getDeviceName());
+
+               Toast.makeText(this, namee, Toast.LENGTH_SHORT).show();
 
            }
+
+
+         /*  private void getDataFromSQLite() {
+               // AsyncTask is used that SQLite operation not blocks the UI Thread.
+               new AsyncTask<Void, Void, Void>() {
+                   @Override
+                   protected Void doInBackground(Void... params) {
+                       deviceList.clear();
+                       deviceList.addAll(devicerepo.getAllDevice());
+
+                       return null;
+                   }
+
+                   @Override
+                   protected void onPostExecute(Void aVoid) {
+                       super.onPostExecute(aVoid);
+                       deviceAdapter.notifyDataSetChanged();
+                   }
+               }.execute();
+           }*/
        }
 
 /*

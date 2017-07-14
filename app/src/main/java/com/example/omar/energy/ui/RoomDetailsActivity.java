@@ -1,8 +1,10 @@
 package com.example.omar.energy.ui;
 
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -13,57 +15,59 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.omar.energy.R;
 import com.example.omar.energy.adapter.DeviceAdapter;
 import com.example.omar.energy.module.Device;
-//import com.example.omar.energy.sqlite.MySqliteOpenHelper;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.security.AccessController.getContext;
+
 public class RoomDetailsActivity extends AppCompatActivity {
 
     private AppCompatActivity activity = RoomDetailsActivity.this;
+
     private RecyclerView recyclerView;
     private DeviceAdapter adapter;
     private List<Device> deviceList;
-  //  private MySqliteOpenHelper databaseHelper;
-    String roomName;
-    TextView roomTitle;
+    TextView roomName;
+    String getRoomName;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_details);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-      roomName=getIntent().getStringExtra("Room");
-        roomTitle = (TextView) findViewById(R.id.roomName);
-                roomTitle.setText(roomName);
         initCollapsingToolbar();
 
+        getRoomName=getIntent().getStringExtra("Room");
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
         deviceList = new ArrayList<>();
         adapter = new DeviceAdapter(this, deviceList);
-
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        prepareAlbums();
-
-      //  databaseHelper = new MySqliteOpenHelper(activity);
+        roomName =(TextView) findViewById(R.id.roomName);
+        roomName.setText(getRoomName);
 
 
         /// getDataFromSQLite();
 
+        prepareAlbums();
 
         try {
             // Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
@@ -96,7 +100,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(roomName);
+                    collapsingToolbar.setTitle(getRoomName);
                     isShow = true;
                 } else if (isShow) {
                     collapsingToolbar.setTitle(" ");
@@ -105,10 +109,31 @@ public class RoomDetailsActivity extends AppCompatActivity {
             }
         });
     }
+    /*
+     * This method is to fetch all user records from SQLite*/
 
-    /**
-     * Adding few albums for testing
-     */
+    private void getDataFromSQLite() {
+        // AsyncTask is used that SQLite operation not blocks the UI Thread.
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                //   deviceList.clear();
+
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                adapter.notifyDataSetChanged();
+            }
+        }.execute();
+    }
+
+    /*
+     * Adding few albums for testing*/
+
     private void prepareAlbums() {
         int[] covers = new int[]{
                 R.drawable.airconditioner,
@@ -159,12 +184,12 @@ public class RoomDetailsActivity extends AppCompatActivity {
                 if (position < spanCount) { // top edge
                     outRect.top = spacing;
                 }
-               outRect.bottom = spacing; // item bottom
+                outRect.bottom = spacing; // item bottom
             } else {
 
-                /*if (position >= spanCount) {
+                if (position >= spanCount) {
                     outRect.top = spacing; // item top
-                }*/
+                }
             }
         }
     }

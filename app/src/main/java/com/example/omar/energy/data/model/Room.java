@@ -30,6 +30,12 @@ public class Room {
     public Room() {
     }
 
+    public Room(int roomId, String roomName, List<Device> deviceList) {
+        this.roomId = roomId;
+        this.roomName = roomName;
+        this.deviceList = deviceList;
+    }
+
     public Room(String roomName, int roomImageId) {
         this.roomName = roomName;
         this.roomImageId = roomImageId;

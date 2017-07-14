@@ -7,8 +7,6 @@
     android:background="@android:color/white"
     android:fitsSystemWindows="true">
 
-    <include layout="@layout/room_details_content" />
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -74,5 +72,9 @@
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
+
+
+    <include android:id="@+id/include"
+        layout="@layout/room_details_content" />
 
 </android.support.design.widget.CoordinatorLayout>

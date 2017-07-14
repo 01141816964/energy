@@ -83,9 +83,6 @@ public class  fragment_1 extends Fragment {
             TextView leIndecator = (TextView) view.findViewById(R.id.LE);
             leIndecator.setText(LE);
 
-
-
-
             return view;
         }
     }

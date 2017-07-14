@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //version number to upgrade database version
     //each time if you Add, Edit table, you need to change the
     //version number.
-    private static final int DATABASE_VERSION =8;
+    private static final int DATABASE_VERSION =2;
     // Database Name
     private static final String DATABASE_NAME = "SaveEnergyDB.db";
    // private static final String TAG = DBHelper.class.getSimpleName().toString();
@@ -35,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //All necessary tables you like to create will create here
         db.execSQL(UserRepo.createTable());
       //db.execSQL(RoomRepo.createTable());
-      //db.execSQL(DeviceRepo.createTable());
+      db.execSQL(DeviceRepo.createTable());
 
     }
 
