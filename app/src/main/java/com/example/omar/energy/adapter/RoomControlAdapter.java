@@ -43,8 +43,9 @@ public class RoomControlAdapter extends RecyclerView.Adapter<RoomControlAdapter.
         final Room room = roomList.get(position);
 
         holder.roomName.setText(room.getRoomName());
-        holder.device1.setText(room.getDeviceList().get(0).getDeviceName());
-        holder.device2.setText(room.getDeviceList().get(1).getDeviceName());
+        holder.device1.setText("device1");//room.getDeviceList().get(0).getDeviceName());
+        holder.device2.setText("device2");//room.getDeviceList().get(1).getDeviceName());
+
         holder.toggleRoom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
          @Override
          public void onCheckedChanged(CompoundButton button, boolean isChecked) {
@@ -53,10 +54,10 @@ public class RoomControlAdapter extends RecyclerView.Adapter<RoomControlAdapter.
                  Toast.makeText(mcontext, holder.roomName.getText()+" is ON",
                          Toast.LENGTH_SHORT).show();
                  holder.toggleDevice1.setChecked(true);
-                 room.getDeviceList().get(0).setStatus(true);
+//                 room.getDeviceList().get(0).setStatus(true);
 
                  holder.toggleDevice2.setChecked(true);
-                 room.getDeviceList().get(1).setStatus(true);
+//                 room.getDeviceList().get(1).setStatus(true);
 
 
              }
@@ -64,10 +65,10 @@ public class RoomControlAdapter extends RecyclerView.Adapter<RoomControlAdapter.
                  Toast.makeText(mcontext, holder.roomName.getText()+" is OFF",
                          Toast.LENGTH_SHORT).show();
              holder.toggleDevice1.setChecked(false);
-             room.getDeviceList().get(0).setStatus(false);
+//             room.getDeviceList().get(0).setStatus(false);
 
              holder.toggleDevice2.setChecked(false);
-             room.getDeviceList().get(1).setStatus(false);
+//             room.getDeviceList().get(1).setStatus(false);
 
          }
      }
@@ -79,13 +80,13 @@ public class RoomControlAdapter extends RecyclerView.Adapter<RoomControlAdapter.
                 if( holder.toggleDevice1.isChecked()){
                     Toast.makeText(mcontext, holder.device1.getText()+" is ON",
                             Toast.LENGTH_SHORT).show();
-                    room.getDeviceList().get(0).setStatus(true);
+//                    room.getDeviceList().get(0).setStatus(true);
 
                 }
                 else
                     Toast.makeText(mcontext, holder.device1.getText()+" is OFF",
                             Toast.LENGTH_SHORT).show();
-                   room.getDeviceList().get(0).setStatus(false);
+//                   room.getDeviceList().get(0).setStatus(false);
 
             }
         }
@@ -97,26 +98,20 @@ public class RoomControlAdapter extends RecyclerView.Adapter<RoomControlAdapter.
                     if( holder.toggleDevice2.isChecked()){
                         Toast.makeText(mcontext, holder.device2.getText()+" is ON",
                                 Toast.LENGTH_SHORT).show();
-                        room.getDeviceList().get(1).setStatus(true);
-
+//                        room.getDeviceList().get(1).setStatus(true);
                     }
                     else
                         Toast.makeText(mcontext, holder.device2.getText()+" is OFF",
                                 Toast.LENGTH_SHORT).show();
-                    room.getDeviceList().get(1).setStatus(true);
-
+//                    room.getDeviceList().get(1).setStatus(true);
                 }
             }
 );
-
-
     }
-
     @Override
     public int getItemCount() {
         return 0;
     }
-
 
     // initialize holder and like view elements
     public class RoomViewHolder extends RecyclerView.ViewHolder {
@@ -131,9 +126,6 @@ public class RoomControlAdapter extends RecyclerView.Adapter<RoomControlAdapter.
             toggleRoom = (ToggleButton) itemView.findViewById(R.id.toggleRoom);
             toggleDevice1 = (ToggleButton) itemView.findViewById(R.id.toggleDevice1);
             toggleDevice2= (ToggleButton) itemView.findViewById(R.id.toggleDevice2);
-
-
-
         }
     }
 }

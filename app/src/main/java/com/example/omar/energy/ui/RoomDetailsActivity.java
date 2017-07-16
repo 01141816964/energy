@@ -22,6 +22,8 @@ import android.widget.Toast;
 import com.example.omar.energy.R;
 import com.example.omar.energy.adapter.DeviceAdapter;
 import com.example.omar.energy.module.Device;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
@@ -61,6 +63,9 @@ public class RoomDetailsActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+       // DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+
+
         roomName =(TextView) findViewById(R.id.roomName);
         roomName.setText(getRoomName);
 
@@ -77,6 +82,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
 
     }
+
 
     /**
      * Initializing collapsing toolbar

@@ -8,6 +8,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 //import com.androidtutorialshub.loginregister.R;
 //import com.androidtutorialshub.loginregister.adapters.UsersRecyclerAdapter;
@@ -38,28 +40,87 @@ public class SleepActivity extends AppCompatActivity {
     private UserRepo userRepo;
     //   private MySqliteOpenHelper databaseHelper;
 
+   /* private ToggleButton toggle1;
+    private ToggleButton toggle2;
+    private ToggleButton toggle3;
+    private ToggleButton toggle4;
+    private ToggleButton toggle5;
+    private ToggleButton toggle6;
+    private ToggleButton toggle7;
+    private ToggleButton toggle8;
+    private ToggleButton toggle9;
+    private ToggleButton toggle10;
+    private ToggleButton toggle11;
+    private ToggleButton toggle12;
+    private ToggleButton toggle13;
+    private ToggleButton toggle14;
+    private ToggleButton toggle15;
+    private ToggleButton toggle16;
+    private ToggleButton toggle17;
+    private ToggleButton toggle18;*/
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_list);
-        getSupportActionBar().setTitle("");
-        initViews();
-        initObjects();
+        setContentView(R.layout.activity_sleep);
+
+       /* toggle1= (ToggleButton) findViewById(R.id.toggleRoom1);
+        toggle4= (ToggleButton) findViewById(R.id.toggleRoom2);
+        toggle7= (ToggleButton) findViewById(R.id.toggleRoom3);
+        toggle10= (ToggleButton) findViewById(R.id.toggleRoom4);
+        toggle13= (ToggleButton) findViewById(R.id.toggleRoom5);
+        toggle16= (ToggleButton) findViewById(R.id.toggleRoom);
+
+        toggle2= (ToggleButton) findViewById(R.id.device11);
+        toggle5= (ToggleButton) findViewById(R.id.device12);
+        toggle8= (ToggleButton) findViewById(R.id.device13);
+        toggle11= (ToggleButton) findViewById(R.id.device14);
+        toggle14= (ToggleButton) findViewById(R.id.device15);
+        toggle17= (ToggleButton) findViewById(R.id.device16);
+
+        toggle3= (ToggleButton) findViewById(R.id.device21);
+        toggle6= (ToggleButton) findViewById(R.id.device22);
+        toggle9= (ToggleButton) findViewById(R.id.device23);
+        toggle12= (ToggleButton) findViewById(R.id.device24);
+        toggle15= (ToggleButton) findViewById(R.id.device25);
+        toggle18= (ToggleButton) findViewById(R.id.device26);
+
+
+        toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    toggle2.setChecked(true);
+                    toggle3.setChecked(true);
+                }
+                else{
+                    toggle2.setChecked(false);
+                    toggle3.setChecked(false);
+                }
+            }
+        });
+*/
+
+
+        //   getSupportActionBar().setTitle("Save Energy");
+        // initViews();
+       // initObjects();
 
     }
 
     /**
      * This method is to initialize views
      */
-    private void initViews() {
+    /*private void initViews() {
         textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
         recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerRoomControl);
     }
-
+*/
     /**
      * This method is to initialize objects to be used
      */
-    private void initObjects() {
+  /*  private void initObjects() {
         roomList = new ArrayList<>();
         deviceList = new ArrayList<>();
 
@@ -73,12 +134,12 @@ public class SleepActivity extends AppCompatActivity {
         //databaseHelper = new MySqliteOpenHelper(activity);
         // userRepo = new UserRepo(activity);
 
-       /* String emailFromIntent = getIntent().getStringExtra("EMAIL");
+       *//* String emailFromIntent = getIntent().getStringExtra("EMAIL");
         textViewName.setText(emailFromIntent);
-*/
+*//*
         prepareAlbums();
       //  getDataFromSQLite();
-    }
+    }*/
 
     /**
      * This method is to fetch all user records from SQLite
@@ -102,7 +163,7 @@ public class SleepActivity extends AppCompatActivity {
         }.execute();
     }*/
 
-    private void prepareAlbums() {
+    /*private void prepareAlbums() {
 
 
         Device a = new Device(0,"AC", 50, 5,true);
@@ -127,5 +188,5 @@ public class SleepActivity extends AppCompatActivity {
 
 
         roomConrtolAdapter.notifyDataSetChanged();
-    }
+    }*/
 }

@@ -15,7 +15,7 @@ import com.pixelcan.inkpageindicator.InkPageIndicator;
 public class HomeActivity extends AppCompatActivity {
     FragmentPagerAdapter adapterViewPager;
     InkPageIndicator mIndicator;
-    public static String emailFromIntent;
+   public static String emailFromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

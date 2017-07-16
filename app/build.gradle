@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -10,23 +9,17 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        useLibrary 'org.apache.http.legacy'
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' } }}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-
-
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.github.CardinalNow:Android-CircleProgressIndicator:v0.2'
     compile 'com.pacioianu.david:ink-page-indicator:1.2.0'
@@ -38,5 +31,12 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
     compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    compile 'com.google.firebase:firebase-auth:11.0.2'
+    compile 'com.google.firebase:firebase-database:11.0.2'
+    compile 'org.apache.httpcomponents:httpcore:4.4.1'
+    compile 'org.apache.httpcomponents:httpclient:4.5'
+    compile 'cz.msebera.android:httpclient:4.4.1.2'
+    compile 'com.android.volley:volley:1.0.0'
     testCompile 'junit:junit:4.12'
 }
+apply plugin: 'com.google.gms.google-services'

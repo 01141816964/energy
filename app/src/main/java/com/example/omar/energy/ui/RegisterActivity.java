@@ -1,6 +1,8 @@
 package com.example.omar.energy.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -9,13 +11,20 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.omar.energy.module.InputValidation;
 //import com.example.omar.energy.sqlite.MySqliteOpenHelper;
 import com.example.omar.energy.R;
 import com.example.omar.energy.data.model.User;
 import com.example.omar.energy.data.repo.UserRepo;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 //import com.androidtutorialshub.loginregister.R;
 //import com.androidtutorialshub.loginregister.helpers.InputValidation;
@@ -26,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private final AppCompatActivity activity = RegisterActivity.this;
 
+    private FirebaseAuth auth;
     private NestedScrollView nestedScrollView;
 
     private TextInputLayout textInputLayoutName;
@@ -50,6 +60,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
+
         getSupportActionBar().hide();
 
         initViews();
@@ -110,8 +125,47 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
 
             case R.id.appCompatButtonRegister:
-                postDataToSQLite();
-                break;
+              //  postDataToSQLite();
+
+                final String email = textInputEditTextEmail.getText().toString().trim();
+                String password = textInputEditTextPassword.getText().toString().trim();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //create user
+                auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(RegisterActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Intent intent =new Intent(RegisterActivity.this, HomeActivity.class);
+                                    intent.putExtra("EMAIL",email);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        });
+                           break;
 
             case R.id.appCompatTextViewLoginLink:
                 finish();
@@ -164,6 +218,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     /**
      * This method is to empty all input edit text
      */
+
     private void emptyInputEditText() {
         textInputEditTextName.setText(null);
         textInputEditTextEmail.setText(null);

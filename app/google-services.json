@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "794929870644",
+    "firebase_url": "https://save-energy.firebaseio.com",
+    "project_id": "save-energy",
+    "storage_bucket": "save-energy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794929870644:android:03af8307c16b6ddb",
+        "android_client_info": {
+          "package_name": "com.example.omar.energy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794929870644-48p27oi8ra2ckt2rcibnka5q8tmn2c7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqGpWG3ZP4kkFj_2N4v6SKQ5ExBqrmdPc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

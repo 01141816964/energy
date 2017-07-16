@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,7 +76,7 @@ public class fragment_3 extends Fragment {
 
     /*GridView androidGridView, String[] gridViewString, int[] gridViewImageId*/
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_3, container, false);
@@ -100,9 +101,28 @@ public class fragment_3 extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,int i, long id) {
 
                 Toast.makeText(getContext(), "Selected Mood: " + gridViewString[+i], Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(getContext(),SleepActivity.class);
-                startActivity(intent);
 
+            }
+        });
+        androidGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent;
+                switch (position) {
+                    case 0: {intent =new Intent(getContext(),NormalActivity.class);
+                        startActivity(intent);}
+                    break;
+                    case 1: {intent =new Intent(getContext(),SleepActivity.class);
+                        startActivity(intent);}
+                        break;
+                    case 2: {intent =new Intent(getContext(),OutActivity.class);
+                        startActivity(intent);}
+                        break;
+                    case 3: {intent =new Intent(getContext(),ExtraActivity.class);
+                        startActivity(intent);}
+                        break;
+                }
+                return true;
             }
         });
         return view;

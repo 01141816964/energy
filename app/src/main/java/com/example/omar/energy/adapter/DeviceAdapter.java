@@ -13,6 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import com.bumptech.glide.Glide;
 
@@ -32,27 +38,25 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.MyViewHold
     private Context mContext;
 
 
-
-
     private List<Device> deviceList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
         public TextView name, kwh;
         public ImageView deviceImage, overflow;
         public ToggleButton toggleButton;
+
+
 
         public MyViewHolder(View view) {
             super(view);
             mContext=itemView.getContext();
             name = (TextView) view.findViewById(R.id.title);
-            kwh = (TextView) view.findViewById(R.id.count);
+            kwh= (TextView) view.findViewById(R.id.count);
             deviceImage = (ImageView) view.findViewById(R.id.deviceImage);
             overflow = (ImageView) view.findViewById(R.id.overflow);
             toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton2);
-
-
         }
-
 
     }
 
